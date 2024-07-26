@@ -152,6 +152,7 @@ public class UserManagement extends JFrame {
 		contentPane.add(btnLogOut);
 
 		RoundedBorder btnChangePass = new RoundedBorder("Change Password", 25);
+		btnChangePass.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		btnChangePass.setText("Change ");
 		btnChangePass.setForeground(new Color(255, 255, 255));
 		btnChangePass.setFont(new Font("Trebuchet MS", Font.BOLD, 16));

@@ -81,12 +81,13 @@ public class LogIn extends JFrame {
 		contentPane.add(u_name);
 		u_name.setColumns(10);
 
-		RoundedBorder LogInButton = new RoundedBorder("Log In", 30);
+		RoundedBorder LogInButton = new RoundedBorder("Log In", 25);
 		LogInButton.setForeground(new Color(255, 255, 255));
 		LogInButton.setBackground(new Color(39, 85, 160));
 		LogInButton.setBorder(null);
 		LogInButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			
 				String name = u_name.getText();
 				String passw = new String(pass.getPassword());
 
@@ -102,9 +103,9 @@ public class LogIn extends JFrame {
 
 					ps.setString(1, name);
 					ps.setString(2, passw);
-
+					
 					admin = ps.executeQuery();
-
+						
 					ps = DbConnection.getConnection().prepareStatement(userQuery);
 
 					ps.setString(1, name);
@@ -152,7 +153,7 @@ public class LogIn extends JFrame {
 		LogInButton.setBounds(580, 300, 109, 37);
 		contentPane.add(LogInButton);
 
-		RoundedBorder BackButton = new RoundedBorder("Back", 30);
+		RoundedBorder BackButton = new RoundedBorder("Back", 25);
 		BackButton.setForeground(new Color(255, 255, 255));
 		BackButton.setBorder(null);
 		BackButton.setBackground(new Color(39, 85, 160));

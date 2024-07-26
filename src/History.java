@@ -54,7 +54,6 @@ public class History extends JFrame {
 		}
 		try {
 			Statement stmt = connection.createStatement();
-			// SQL query to fetch data
 			String query = "SELECT * FROM check_in_out.history WHERE user_id = " + Id + " ORDER BY Check_in DESC";
 			return stmt.executeQuery(query);
 		} catch (SQLException e) {

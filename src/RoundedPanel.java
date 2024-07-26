@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class RoundedPanel extends JPanel {
 
-    private int cornerRadius = 20; // Change this value to adjust the corner radius
+    private int cornerRadius = 20;
 
     public RoundedPanel() {
         super();
@@ -16,11 +16,9 @@ public class RoundedPanel extends JPanel {
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // Background color
         g2.setColor(getBackground());
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), cornerRadius, cornerRadius);
 
-        // Border color
         g2.setColor(getForeground());
         g2.drawRoundRect(0, 0, getWidth(), getHeight(), cornerRadius, cornerRadius);
 

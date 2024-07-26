@@ -176,7 +176,7 @@ public class Requests extends JFrame {
 				id.setText("");
 			}
 		});
-		btnReject.setBounds(50, 330, 120, 35);
+		btnReject.setBounds(270, 330, 120, 35);
 		contentPane.add(btnReject);
 		
 		btnAccept = new RoundedBorder("Accept", 25);
@@ -266,15 +266,30 @@ public class Requests extends JFrame {
 				default:
 
 				}
+				deletereq(Integer.parseInt(id.getText()));
 				id.setText("");
 				type.setText("");
 				content.setText("");
 				user_id.setText("");
-				deletereq(Integer.parseInt(id.getText()));
 			}
 		});
 		btnAccept.setBounds(488, 330, 120, 35);
 		contentPane.add(btnAccept);
+		
+		RoundedBorder btnBack = new RoundedBorder("Reject", 25);
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				setVisible(false);
+				new EmployeeManagement().setVisible(true);
+			}
+		});
+		btnBack.setText("Back");
+		btnBack.setForeground(Color.WHITE);
+		btnBack.setFont(new Font("Trebuchet MS", Font.PLAIN, 16));
+		btnBack.setBorder(null);
+		btnBack.setBackground(new Color(39, 85, 160));
+		btnBack.setBounds(51, 330, 120, 35);
+		contentPane.add(btnBack);
 
 	}
 }

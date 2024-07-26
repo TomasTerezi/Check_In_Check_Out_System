@@ -78,6 +78,7 @@ public class EmployeeManagement extends JFrame {
 		Age.setText("");
 		Email.setText("");
 		Address.setText("");
+		viewField.setText("");		
 		comboBoxJob.setSelectedItem("HR");
 		MaleRadioButton.setSelected(false);
 		FemaleRadioButton.setSelected(false);
@@ -456,12 +457,6 @@ public class EmployeeManagement extends JFrame {
 		comboBoxFilter.setBackground(new Color(39, 85, 160));
 		;
 
-//		HashMap<String,Integer> map = new HashMap();
-//		map.put("", 0);
-//		map.put("Name",1);
-//		map.put("Age",3);
-//		map.put("Gender",4);
-//		map.put("Role", 6);
 		Search = new JTextField();
 		Search.addKeyListener(new KeyAdapter() {
 			@Override
@@ -484,7 +479,7 @@ public class EmployeeManagement extends JFrame {
 					column = 4;
 					break;
 				case "Role":
-					column = 6;
+					column = 7;
 					break;
 				default:
 					column = 0;
@@ -503,7 +498,7 @@ public class EmployeeManagement extends JFrame {
 		lblUserManagment.setBounds(601, 20, 239, 30);
 		contentPane.add(lblUserManagment);
 
-		ResultSet rs = DataFetcher.fetchData();
+		ResultSet rs = fetchData();
 		if (rs == null) {
 			JOptionPane.showMessageDialog(null, "Unable to fetch data from the database.");
 			return;
@@ -514,6 +509,12 @@ public class EmployeeManagement extends JFrame {
 		table.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
 		JScrollPane scrollPane = new JScrollPane(table);
+		scrollPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				clearFields();
+			}
+		});
 		table.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -579,6 +580,8 @@ public class EmployeeManagement extends JFrame {
 				try {
 					int id = Integer.parseInt(viewField.getText());
 					new History(id, true).setVisible(true);
+					
+					clearFields();
 				} catch (Exception err) {
 					err.printStackTrace();
 				}
